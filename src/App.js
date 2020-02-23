@@ -57,13 +57,8 @@ class App extends Component {
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
-            <CartSummary currencyFormat={USCurrencyFormat} features={this.props.features} selected={this.state.selected} updateFeature={this.updateFeature}/>
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
+            <CartSummary usCurrencyFormat={USCurrencyFormat}
+              selected={this.state.selected} />
           </section>
         </main>
       </div>

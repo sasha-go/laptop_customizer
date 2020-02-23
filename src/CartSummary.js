@@ -1,7 +1,8 @@
 import React from 'react';
+import Total from './Total';
 
 	const CartSummary = (props) => {
-		return Object.keys(props.selected).map((feature, idx) => {
+		const summary = Object.keys(props.selected).map((feature, idx) => {
 			const featureHash = feature + '-' + idx;
 			const selectedOption = props.selected[feature];
 		
@@ -10,12 +11,21 @@ import React from 'react';
 					<div className="summary__option__label">{feature} </div>
 					<div className="summary__option__value">{selectedOption.name}</div>
 					<div className="summary__option__cost">
-						{props.currencyFormat.format(selectedOption.cost)}
+						{props.usCurrencyFormat.format(selectedOption.cost)}
 					</div>
 				</div>
 			);
 		});
 	
+		return (
+			<div>
+					{summary}
+					<Total
+							usCurrencyFormat={props.usCurrencyFormat}
+							selected={props.selected}
+					/>
+			</div>
+	)
 }
 
 export default CartSummary; 

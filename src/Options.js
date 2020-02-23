@@ -3,8 +3,9 @@ import slugify from 'slugify';
 
 
 const Options = (props) => {
-	return props.features[props.feature].map(item => {
+	return props.options.map(item => {
 		const itemHash = slugify(JSON.stringify(item));
+		const { selected, updateFeature, currencyFormat, feature } = props;
 
 		return (
 			<div key={itemHash} className="feature__item">
@@ -12,12 +13,12 @@ const Options = (props) => {
 					type="radio"
 					id={itemHash}
 					className="feature__option"
-					name={slugify(props.feature)}
-					checked={item.name === props.selected[props.feature].name}
-					onChange={(e) => props.updateFeature(props.feature, item)}
+					name={slugify(feature)}
+					checked={item.name === selected.name}
+					onChange={(e) => updateFeature(feature, item)}
 				/>
 				<label htmlFor={itemHash} className="feature__label">
-					{item.name} ({props.currencyFormat.format(item.cost)})
+					{item.name} ({currencyFormat.format(item.cost)})
 				</label>
 			</div>
 		);
