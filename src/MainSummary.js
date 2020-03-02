@@ -1,6 +1,6 @@
 import React from 'react';
 import Total from './Total';
-
+import OptionSummary from './OptionSummary';
 	const CartSummary = (props) => {
 		const summary = Object.keys(props.selected).map((feature, idx) => {
 			const featureHash = feature + '-' + idx;
@@ -20,6 +20,7 @@ import Total from './Total';
 		return (
 			<div>
 					{summary}
+					
 					<Total
 							usCurrencyFormat={props.usCurrencyFormat}
 							selected={props.selected}

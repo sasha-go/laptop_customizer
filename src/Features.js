@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import Fieldset from './Fieldset';
-
+import Options from './Options';
 
 const Features = (props) => {
-	return Object.keys(props.features).map((feature, idx) => {
-		const featureHash = feature + '-' + idx;
-		const { selected, updateFeature, currencyFormat, features } = props;
+  const { selected, updateFeature, currencyFormat, feature, options } = props;
 
-		return <Fieldset key={featureHash} feature={feature} options={features[feature]} currencyFormat={currencyFormat} updateFeature={updateFeature} selected={selected[feature]} />
-		}
-	);
+  return (
+    <fieldset className="feature">
+      <legend classname="feature__name">
+        <h3>{feature}</h3>
+      </legend>
+      <Options feature={feature} options={options} selected={selected} currencyFormat={currencyFormat} updateFeature={updateFeature}/>
+    </fieldset>
+  )  
 }
 
 export default Features;

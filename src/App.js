@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Features from './Features';
-import CartSummary from './CartSummary.js';
+import MainForm from './MainForm';
+import MainSummary from './MainSummary';
 import './App.css';
 
 class App extends Component {
@@ -52,12 +52,11 @@ class App extends Component {
         </header>
         <main>
           <form className="main__form">
-            <h2>Customize your laptop</h2>
-            <Features currencyFormat={USCurrencyFormat} features={this.props.features} selected={this.state.selected} updateFeature={this.updateFeature}/>
+            <MainForm currencyFormat={USCurrencyFormat} features={this.props.features} selected={this.state.selected} updateFeature={this.updateFeature}/>
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
-            <CartSummary usCurrencyFormat={USCurrencyFormat}
+            <MainSummary usCurrencyFormat={USCurrencyFormat}
               selected={this.state.selected} />
           </section>
         </main>
